@@ -1,6 +1,8 @@
+import SheetTemplate from "../components/sheetTemplate";
+
 function DsaSheet() {
     return (
-        <h1>DSA Sheet</h1>
+        <SheetTemplate/>
     );
 }
 

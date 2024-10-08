@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
+
 function Home() {
     return (
-        <h1 className="text-3xl font-bold underline">
-            Home Page
-        </h1>
+        <div>
+            <h1 data-theme="night" className="text-3xl font-bold ">Home Page</h1>
+        </div>
     )
 }
 

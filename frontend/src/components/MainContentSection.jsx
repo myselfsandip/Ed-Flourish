@@ -24,7 +24,7 @@ function MainContentSection() {
             </p>
 
             {/* Progress Box */}
-                <div className="w-72 my-8 p-3 grid grid-rows-2 grid-flow-col gap-4 bg-violet-800  shadow-xl rounded-2xl border-2 border-zinc-400">
+                <div className="w-72 my-8 p-3 grid grid-rows-2 grid-flow-col gap-4 bg-emerald-800  shadow-xl rounded-2xl border-2 border-zinc-400">
                     <div className="flex justify-between">
                         <p>Your Progress: 1/75</p>
                         <p> 1% complete</p>
@@ -61,7 +61,7 @@ function MainContentSection() {
                                                 <div className="form-control">
                                                     <label className="label cursor-pointer">
                                                         {/* <input type="checkbox" onClick={checkInputHandler}  checked={problem.status} defaultChecked className="checkbox checkbox-primary" /> */}
-                                                        <input type="checkbox" defaultChecked className="checkbox checkbox-secondary" />
+                                                        <input type="checkbox" defaultChecked className="checkbox checkbox-primary" />
                                                     </label>
                                                 </div>
                                             </td>

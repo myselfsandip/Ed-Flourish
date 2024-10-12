@@ -1,5 +1,6 @@
 import DsaSheet from './pages/DsaSheet';
 import Home from './pages/Home';
+import Bca from './pages/Bca';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/dsa' element={<DsaSheet/>} />
+          <Route path='/bca' element={<Bca/>} />
         </Routes>
       </BrowserRouter>
     </>

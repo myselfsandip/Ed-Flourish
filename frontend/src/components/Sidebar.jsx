@@ -1,5 +1,6 @@
 import { FaRegUserCircle } from "react-icons/fa";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
 
@@ -12,19 +13,19 @@ export const Sidebar = () => {
     return (
         <div className="sidebar min-h-screen w-64 bg-base-200 text-base-content p-4 fixed">
             <h2 className="text-lg font-bold text-center mb-4 py-4">BCA</h2>
-            <ul className="menu mt-4 space-y-3">
+            <ul className="menu mt-4 space-y-3 ">
                 {/* Profile */}
                 <li>
-                    <a href="#" className="flex items-center space-x-2 hover:bg-slate-500 hover:text-white p-2 rounded-lg text-xl">
+                    <a href="#" className="flex items-center space-x-2 hover:bg-slate-500 hover:text-white p-3 rounded-lg text-xl">
                         <FaRegUserCircle />
                         <span>Profile</span>
                     </a>
                 </li>
                 {/* BCA with dropdown */}
-                <li>
+                <li >
                     <div
                         onClick={toggleBCADropdown}
-                        className="flex justify-between items-center cursor-pointer hover:bg-slate-500 hover:text-white p-2 rounded-lg text-xl"
+                        className="flex justify-between items-center cursor-pointer hover:bg-slate-500 hover:text-white p-3 rounded-lg text-xl"
                     >
                         <span>BCA</span>
                         <svg
@@ -47,20 +48,31 @@ export const Sidebar = () => {
                     {isBCADropdownOpen && (
                         <ul className="pl-6 space-y-1">
                             <li>
-                                <a href="#" className="hover:bg-slate-500 hover:text-white p-2 rounded-lg text-lg">
+                                <Link to="/bca/sem1" className="hover:bg-slate-500 hover:text-white p-2 rounded-lg text-lg">
                                     Semester 1
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="hover:bg-slate-500 hover:text-white p-2 rounded-lg text-lg">
+                                <Link to="/bca/sem2" className="hover:bg-slate-500 hover:text-white p-2 rounded-lg text-lg">
                                     Semester 2
-                                </a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/bca/sem3" className="hover:bg-slate-500 hover:text-white p-2 rounded-lg text-lg">
+                                    Semester 3
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/bca/sem4" className="hover:bg-slate-500 hover:text-white p-2 rounded-lg text-lg">
+                                    Semester 4
+                                </Link>
                             </li>
                         </ul>
                         
                     )}
                 </li>
-                <li>Yearly Questions</li>
+                <li >
+                    <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/bca/yearly_questions" >Yearly Questions</Link></li>
             </ul>
         </div>
     );

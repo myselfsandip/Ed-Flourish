@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/dsa' element={<DsaSheet/>} />
-          <Route path='/bca' element={<Bca/>} />
+          <Route path='/bca/*' element={<Bca/>} />
         </Routes>
       </BrowserRouter>
     </>

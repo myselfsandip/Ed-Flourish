@@ -4,7 +4,7 @@ import { Sidebar } from "./Sidebar";
 
 function CourseTemplate() {
     return (
-        <div data-theme="night" className="flex">
+        <div className="flex">
             {/* Sidebar */}
             <Sidebar />
 

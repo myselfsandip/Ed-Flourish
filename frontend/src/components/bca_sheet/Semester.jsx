@@ -2,7 +2,7 @@ import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 import { RiArticleLine } from "react-icons/ri";
 import { FaYoutube } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import { topicsData } from "./data";  // Importing dummy data
+import { topicsData } from "./data.js";  // Importing dummy data
 import { useState } from "react";
 import {Link} from "react-router-dom";
 

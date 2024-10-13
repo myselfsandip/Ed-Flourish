@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaCheck, FaTimes, FaHome, FaRedo, FaPlay } from 'react-icons/fa';
-import { questions } from './data'; // Make sure this import path is correct
+import { questions } from './data.js'; // Make sure this import path is correct
 
 function MockTest() {
     const [currentQuestion, setCurrentQuestion] = useState(0);

@@ -72,7 +72,11 @@ export const Sidebar = () => {
                     )}
                 </li>
                 <li >
-                    <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/bca/yearly_questions" >Yearly Questions</Link></li>
+                    <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/bca/yearly_questions" >Yearly Questions</Link>
+                </li>
+                <li >
+                    <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/bca/mock_test" >Mock Text</Link>
+                </li>
             </ul>
         </div>
     );

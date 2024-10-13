@@ -69,11 +69,11 @@ export const Semester = ({sem}) => {
                                         </div>
                                     </td>
                                     <td>{problem.problem}</td>
-                                    <td ><Link href={problem.article} className="flex justify-center"> <RiArticleLine className="text-2xl" /> </Link></td>
-                                    <td ><Link href={problem.video}className="flex justify-center"><FaYoutube className="text-2xl" /></Link></td>
+                                    <td ><Link href={problem.article} className="flex justify-center"> <RiArticleLine className="text-2xl text-blue-600" /> </Link></td>
+                                    <td ><Link href={problem.video}className="flex justify-center"><FaYoutube className="text-2xl text-red-600 " /></Link></td>
                                     <td >
                                         {/* {problem.difficulty} */}
-                                    <Link className="flex justify-center"><SiLeetcode className="text-2xl" /></Link>
+                                    <Link className="flex justify-center"><SiLeetcode className="text-2xl text-yellow-500" /></Link>
                                     </td>
                                 </tr>
                             ))}

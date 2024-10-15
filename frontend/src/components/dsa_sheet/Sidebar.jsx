@@ -16,14 +16,14 @@ export const Sidebar = () => {
             <ul className="menu mt-4 space-y-3 ">
                 {/* Profile */}
                 <li>
-                    <a href="#" className="flex items-center space-x-2 hover:bg-slate-500 hover:text-white p-3 rounded-lg text-xl">
+                    <Link to="/profile" className="flex items-center space-x-2 hover:bg-slate-500 hover:text-white p-3 rounded-lg text-xl">
                         <FaRegUserCircle />
                         <span>Profile</span>
-                    </a>
+                    </Link>
                 </li>
                 
                 <li >
-                    <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/dsa/dsa_sheet" >Dsa Sheet</Link>
+                    <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/dsa" >Dsa Sheet</Link>
                 </li>
                 {/* <li >
                     <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/bca/mock_test" >Mock Text</Link>

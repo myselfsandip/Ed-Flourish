@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-export const Semester = ({ sem }) => {
+const DsaSheet = () => {
     const [isOpen, setIsOpen] = useState({}); // Dynamic open state
 
     const toggleDropdown = (section) => {
@@ -21,7 +21,7 @@ export const Semester = ({ sem }) => {
         console.log(event.target);
     }
     return <div className="h-full bg-base-100 rounded-lg shadow-inner p-8">
-        <h1 className="text-3xl font-bold mb-2">Semester {sem}</h1>
+        <h1 className="text-3xl font-bold mb-2">DSA Sheet</h1>
         <p className="mb-4 mt-2">
             Blind 75 leetcode is a list of 75 most frequent asked leetcode questions which had helped many developers clear interviews of Google, Amazon, Microsoft, Facebook etc.
         </p>
@@ -85,3 +85,5 @@ export const Semester = ({ sem }) => {
         ))}
     </div>
 }
+
+export default DsaSheet;

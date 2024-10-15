@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaCheck, FaTimes, FaHome, FaRedo, FaPlay } from 'react-icons/fa';
-import { questions } from './data.js'; // Make sure this import path is correct
+import { questions } from '../../assets/data.js'; // Make sure this import path is correct
 
 function MockTest() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -67,12 +67,12 @@ function MockTest() {
                         Make sure you're in a quiet environment and ready to begin.
                     </p>
                     <div className='flex justify-center'>
-                    <button
-                        onClick={handleStart}
-                        className="btn btn-primary btn-lg flex items-center justify-center"
-                    >
-                        <FaPlay className="mr-2" /> Start Test
-                    </button>
+                        <button
+                            onClick={handleStart}
+                            className="btn btn-primary btn-lg flex items-center justify-center"
+                        >
+                            <FaPlay className="mr-2" /> Start Test
+                        </button>
                     </div>
                 </div>
             </div>
@@ -150,8 +150,8 @@ function MockTest() {
                             key={answer.id}
                             onClick={() => handleAnswerSelect(questions[currentQuestion].id, answer.id)}
                             className={`w-full text-left p-3 rounded-lg transition-colors ${selectedAnswers[questions[currentQuestion].id] === answer.id
-                                    ? 'bg-primary text-primary-content'
-                                    : 'bg-base-300 hover:bg-primary/20'
+                                ? 'bg-primary text-primary-content'
+                                : 'bg-base-300 hover:bg-primary/20'
                                 }`}
                         >
                             {answer.text}

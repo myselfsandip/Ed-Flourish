@@ -2,7 +2,7 @@ import CourseTemplate from "../components/bca_sheet/CourseTemplate";
 
 function Bca() {
     return (
-        <CourseTemplate/>
+        <CourseTemplate  />
     );
 }
 

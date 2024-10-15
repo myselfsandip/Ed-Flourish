@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import { Semester } from "./Semester";
 import YearlyQuestions from "./YearlyQuestions";
 import MockText from "./MockTest";
+import PageNotFound from "../PageNotFound";
+
 
 function MainContentSection() {
 
@@ -10,12 +12,13 @@ function MainContentSection() {
 
     return (
             <Routes>
-                <Route path="sem1" element={<Semester sem={1} />} />
+                <Route path="/" element={<Semester sem={1} />} />
                 <Route path="sem2" element={<Semester sem={2} />} />
                 <Route path="sem3" element={<Semester sem={3} />} />
                 <Route path="sem4" element={<Semester sem={4} />} />
                 <Route path="yearly_questions" element={<YearlyQuestions/>} />
                 <Route path="mock_test" element={<MockText/>} />
+                <Route path="/*" element={<PageNotFound/>} />
             </Routes>
     );
 }

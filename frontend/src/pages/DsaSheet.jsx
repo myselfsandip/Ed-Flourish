@@ -1,4 +1,4 @@
-import SheetTemplate from "../components/genarel_sheet/SheetTemplate";
+import SheetTemplate from "../components/dsa_sheet/SheetTemplate";
 
 function DsaSheet() {
     return (

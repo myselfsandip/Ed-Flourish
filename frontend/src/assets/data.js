@@ -161,3 +161,6 @@ export const questions = [
         correctAnswer: 'a'
     }
 ];
+
+
+export const isLogin = false;

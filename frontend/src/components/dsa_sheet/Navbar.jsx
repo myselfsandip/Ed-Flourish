@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { FaRegUserCircle } from "react-icons/fa";
 import { isLogin } from "../../assets/data";
+import { Link } from "react-router-dom";
 
 
 export const Navbar = () => {
@@ -16,9 +17,9 @@ export const Navbar = () => {
                 <a className="btn btn-ghost text-xl">DSA</a>
             </div>
             <div className="flex-none">
-                <div className="form-control me-6">
+                {/* <div className="form-control me-6">
                     <input type="text" placeholder="Search" className="input input-bordered" />
-                </div>
+                </div> */}
 
                 {isLogin ? <div className="dropdown dropdown-end" onClick={dropdownHandler}>
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -34,21 +35,7 @@ export const Navbar = () => {
                 </div> :
                     <div className="dropdown dropdown-end" >
                         {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                        <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_3').showModal()}>Login</button>
-                        <dialog id="my_modal_3" className="modal">
-                            <div className="modal-box">
-                                <form method="dialog">
-                                    {/* if there is a button in form, it will close the modal */}
-                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                </form>
-                                <div className="flex justify-center align-middle">
-                                    {/* Write Code */}
-                                    <h1>Welcome back to ED Flourish</h1>
-                                    
-                                </div>
-                            </div>
-                        </dialog>
-
+                        <Link className="btn btn-primary " to="/login" >Login</Link>
                     </div>
                 }
             </div>

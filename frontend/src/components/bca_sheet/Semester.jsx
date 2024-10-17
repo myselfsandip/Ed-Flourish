@@ -1,5 +1,4 @@
-import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
-import { RiArticleLine } from "react-icons/ri";
+import { RiArticleLine , RiArrowDropDownLine ,RiArrowDropUpLine } from "react-icons/ri";
 import { FaYoutube } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { topicsData } from "../../assets/data.js";  // Importing dummy data
@@ -43,7 +42,7 @@ export const Semester = ({ sem }) => {
                     className="w-full text-left btn flex justify-between"
                 >
                     {topic.day}
-                    <span>{isOpen[topic.id] ? <IoIosArrowDropup className="text-2xl" /> : <IoIosArrowDropdown className="text-2xl" />}</span>
+                    <span>{isOpen[topic.id] ? <div className="bg-gray-700 rounded-md"><RiArrowDropUpLine className="text-2xl hover:text-gray-500" /></div> : <div className="bg-gray-700 rounded-md"><RiArrowDropDownLine className="text-2xl hover:text-gray-500" /></div>}</span>
                 </button>
                 {isOpen[topic.id] && (
                     <div className="p-4 bg-base-200 rounded-lg mt-2">

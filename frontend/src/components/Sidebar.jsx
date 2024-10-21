@@ -2,7 +2,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const Sidebar = () => {
+export const Sidebar = ({currentpage,currentpageUrl}) => {
 
     const [isBCADropdownOpen, setBCADropdownOpen] = useState(false);
 
@@ -12,7 +12,7 @@ export const Sidebar = () => {
 
     return (
         <div className="sidebar min-h-screen w-64 bg-base-200 text-base-content p-4 fixed">
-            <h2 className="text-lg font-bold text-center mb-4 py-4">DSA</h2>
+            <h2 className="text-lg font-bold text-center mb-4 py-4">Ed Flourish</h2>
             <ul className="menu mt-4 space-y-3 ">
                 {/* Profile */}
                 <li>
@@ -23,7 +23,7 @@ export const Sidebar = () => {
                 </li>
                 
                 <li >
-                    <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/dsa" >Dsa Sheet</Link>
+                    <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to={currentpageUrl} >{currentpage}</Link>
                 </li>
                 {/* <li >
                     <Link className="p-3 cursor-pointer hover:bg-slate-500 hover:text-white rounded-lg text-xl" to="/bca/mock_test" >Mock Text</Link>

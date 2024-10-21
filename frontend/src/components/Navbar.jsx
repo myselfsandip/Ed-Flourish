@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { FaRegUserCircle } from "react-icons/fa";
-import { isLogin } from "../../assets/data";
+import { isLogin } from "../assets/data";
 import { Link } from "react-router-dom";
 
 
-export const Navbar = () => {
+export const Navbar = ({page}) => {
     const [dropdownState, setDropdownState] = useState(false);
     const dropdownHandler = () => {
         setDropdownState((prev) => {
@@ -14,7 +14,7 @@ export const Navbar = () => {
     return (
         <div className="navbar bg-base-100 fixed top-0 left-64 right-0 z-10 shadow-lg" style={{ width: "calc(100% - 16rem)" }}> {/* Adjust width for fixed sidebar */}
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">DSA</a>
+                <a className="btn btn-ghost text-xl">{page}</a>
             </div>
             <div className="flex-none">
                 {/* <div className="form-control me-6">

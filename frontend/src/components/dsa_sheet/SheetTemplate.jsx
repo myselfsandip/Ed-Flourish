@@ -1,10 +1,11 @@
-import MainContentSection from "./MainContentSection";
-import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
+import { Navbar } from "./Navbar";
+import MainContentSection from "./MainContentSection";
 
-function CourseTemplate() {
+
+const SheetTemplate = ({}) => {
     return (
-        <div data-theme="night" className="flex">
+        <div className="flex">
             {/* Sidebar */}
             <Sidebar />
 
@@ -20,8 +21,6 @@ function CourseTemplate() {
             </div>
         </div>
     );
-}
+};
 
-
-
-export default CourseTemplate;
+export default SheetTemplate;

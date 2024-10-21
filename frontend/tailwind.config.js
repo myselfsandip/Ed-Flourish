@@ -15,4 +15,8 @@ export default {
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
     themeRoot: ":root", // The element that receives theme color CSS variables
   },
+<<<<<<< HEAD
 };
+=======
+
+>>>>>>> acbcbbbc3214c05e0d9ccf62b8ec2f84fd35cd30

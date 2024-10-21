@@ -1,8 +1,8 @@
-import CourseTemplate from "../components/CourseTemplate";
+import CourseTemplate from "../components/bca_sheet/CourseTemplate";
 
 function Bca() {
     return (
-        <CourseTemplate/>
+        <CourseTemplate  />
     );
 }
 

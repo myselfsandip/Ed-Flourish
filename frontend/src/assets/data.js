@@ -122,3 +122,45 @@ export const topicsData = [
         ]
     }
 ];
+
+// data.js
+export const questions = [
+    {
+        id: 1,
+        question: "What does HTML stand for?",
+        answers: [
+            { id: 'a', text: "Hyper Text Markup Language" },
+            { id: 'b', text: "High Tech Multi Language" },
+            { id: 'c', text: "Hyper Transfer Markup Language" },
+            { id: 'd', text: "Home Tool Markup Language" }
+        ],
+        correctAnswer: 'a'
+    },
+    {
+        id: 2,
+        question: "Which of the following is not a programming language?",
+        answers: [
+            { id: 'a', text: "Java" },
+            { id: 'b', text: "Python" },
+            { id: 'c', text: "HTML" },
+            { id: 'd', text: "C++" }
+        ],
+        correctAnswer: 'c'
+    },
+    // Add 48 more questions here following the same structure
+    // ...
+    {
+        id: 50,
+        question: "What is the purpose of a firewall in computer networks?",
+        answers: [
+            { id: 'a', text: "To prevent unauthorized access" },
+            { id: 'b', text: "To increase internet speed" },
+            { id: 'c', text: "To store data" },
+            { id: 'd', text: "To cool down the computer" }
+        ],
+        correctAnswer: 'a'
+    }
+];
+
+
+export const isLogin = false;

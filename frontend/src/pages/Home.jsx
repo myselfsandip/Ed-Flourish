@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom"
+
+import { HomeLandPage } from "../components/HomeTemplate/HomeLandPage";
 
 function Home() {
-    return (
-        <div>
-            <h1 data-theme="night" className="text-3xl font-bold ">Home Page</h1>
-        </div>
-    )
+  return (
+    <div>
+      <HomeLandPage />
+    </div>
+  );
 }
 
-export default Home
+export default Home;

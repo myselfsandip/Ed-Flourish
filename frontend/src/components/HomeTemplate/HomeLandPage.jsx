@@ -5,22 +5,23 @@ console.log(logo); // Keep this for debugging
 const NavBarFront = () => {
   return (
     <div data-theme="night" className="fixed top-0 left-0 right-0 z-50">
-      <nav
-        className="flex justify-between items-center py-4 px-6 md:px-12 lg:px-24"
-        style={{ backgroundColor: "#111827" }}
-      >
+      <nav className="flex justify-between items-center py-4 px-6 md:px-12 lg:px-24 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
         {/* Left section: Logo */}
-        <div className="flex items-center">
-          <img src={logo} alt="EdFlourish Logo" className="h-12 w-auto mr-2" />
-          <h3 className="text-xl font-semibold text-white">EdFlourish</h3>
+        <div className="flex items-center space-x-3">
+          <div className="rounded-lg overflow-hidden">
+            <img src={logo} alt="EdFlourish Logo" className="h-10 w-auto" />
+          </div>
+          <h3 className="text-xl font-semibold text-white bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            EdFlourish
+          </h3>
         </div>
 
         {/* Right section: Buttons */}
-        <div className="space-x-4">
-          <button className="px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-lg">
+        <div className="flex items-center space-x-4">
+          <button className="px-6 py-2 text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-blue-500/20">
             Login
           </button>
-          <button className="px-4 py-2 text-white bg-green-500 hover:bg-green-600 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 shadow-lg">
+          <button className="px-6 py-2 text-white bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-green-500/20">
             Register
           </button>
         </div>
@@ -251,8 +252,8 @@ const WhyChooseUs = () => {
           Unlock Your Potential with Our Comprehensive Learning Approach
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-[#1c232b] p-6 rounded-lg shadow-lg border border-gray-300 transition-transform transform hover:scale-105">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+          <div className="cursor-pointer bg-[#1c232b] p-6 rounded-lg shadow-lg border border-gray-300 transition-transform transform hover:scale-105">
             <h2 className="text-3xl font-bold text-pink-600">01</h2>
             <h3 className="text-xl font-semibold text-pink-500 mb-2">
               Heavily Researched
@@ -266,7 +267,7 @@ const WhyChooseUs = () => {
             </p>
           </div>
 
-          <div className="bg-[#1c232b] p-6 rounded-lg shadow-lg border border-gray-300 transition-transform transform hover:scale-105">
+          <div className="cursor-pointer bg-[#1c232b] p-6 rounded-lg shadow-lg border border-gray-300 transition-transform transform hover:scale-105">
             <h2 className="text-3xl font-bold text-pink-600">02</h2>
             <h3 className="text-xl font-semibold text-pink-500 mb-2">
               Structured Learning Path
@@ -278,7 +279,7 @@ const WhyChooseUs = () => {
             </p>
           </div>
 
-          <div className="bg-[#1c232b] p-6 rounded-lg shadow-lg border border-gray-300 transition-transform transform hover:scale-105">
+          <div className="cursor-pointer bg-[#1c232b] p-6 rounded-lg shadow-lg border border-gray-300 transition-transform transform hover:scale-105">
             <h2 className="text-3xl font-bold text-pink-600">03</h2>
             <h3 className="text-xl font-semibold text-pink-500 mb-2">
               Unmatched Content Depth
@@ -333,7 +334,7 @@ const ResourceGrid = () => {
       title: "BCA Program",
       description: "Explore BCA modules learn and foster your basic learnings",
       actionText: "Learn More",
-      actionLink: "#",
+      actionLink: "/bca",
     },
     {
       icon: "📊",
@@ -341,7 +342,7 @@ const ResourceGrid = () => {
       description:
         "Master Data Structures and Algorithms with our in-depth courses and practice problems.",
       actionText: "Start Learning",
-      actionLink: "#",
+      actionLink: "/dsa",
     },
     {
       icon: "☕",
@@ -349,7 +350,7 @@ const ResourceGrid = () => {
       description:
         "Dive into Java programming with hands-on tutorials and real-world projects.",
       actionText: "Begin Coding",
-      actionLink: "#",
+      actionLink: "/java",
     },
     {
       icon: "▶️",
@@ -357,21 +358,21 @@ const ResourceGrid = () => {
       description:
         "Master algorithms effortlessly with our curated DSA playlist.",
       actionText: "Watch Now",
-      actionLink: "#",
+      actionLink: "/dsa",
     },
     {
       icon: "💻",
       title: "CS Subjects",
       description: "Demystify CS topics with our easy-to-understand guides.",
       actionText: "Try it free",
-      actionLink: "#",
+      actionLink: "/cs",
     },
     {
       icon: "⏱️",
       title: "CP Sheet",
       description: "Level up your coding game with our practice resources.",
       actionText: "Try it free",
-      actionLink: "#",
+      actionLink: "/cp",
     },
   ];
 
@@ -439,7 +440,7 @@ const BlogSection = () => {
 
   return (
     <div className="bg-[#1c232b] py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 cursor-pointer">
         <h2 className="text-4xl font-bold text-white text-center mb-2">
           Our Blog
         </h2>
@@ -459,78 +460,96 @@ const BlogSection = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+    <footer className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Left section */}
-          <div className="lg:col-span-2">
-            <h2 className="text-xl font-bold mb-4">Learn and Grow</h2>
-            <p className="mb-4">
-              Learn and foster your knowledge in the coding world with our site.
-              Learn, grow, and explore!
-            </p>
-            <p className="mb-4">
-              Our platform is dedicated to helping you master the art of coding.
-              Whether you're a beginner or an experienced developer, we have
-              resources to support your learning journey.
-            </p>
-            <p>
-              Join our community today and take the first step towards becoming
-              a proficient programmer!
-            </p>
+          <div className="lg:col-span-2 space-y-6">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                <span className="text-xl font-bold">Ed</span>
+              </div>
+              <h1 className="text-2xl font-bold">EdFlourish</h1>
+            </div>
+            <div className="space-y-4">
+              <p className="text-gray-300 leading-relaxed">
+                Learn and foster your knowledge in the coding world with our site.
+                Learn, grow, and explore!
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                Our platform is dedicated to helping you master the art of coding.
+                Whether you're a beginner or an experienced developer, we have
+                resources to support your learning journey.
+              </p>
+            </div>
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors duration-200">
+              Join Community
+            </button>
           </div>
 
           {/* Right section */}
           <div className="lg:col-span-3">
-            <h2 className="text-xl font-bold mb-6">Learning Paths</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              <a href="#" className="text-gray-300 hover:text-white">
-                Learn Java
+            <h2 className="text-xl font-bold mb-8">Learning Paths</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8">
+              {[
+                'Learn Java',
+                'Learn PHP',
+                'Operating Systems',
+                'Python Programming',
+                'CS Fundamentals',
+                'BCA Curriculum',
+                'Software Engineering',
+                'Frontend Technologies',
+                'Backend Development',
+                'Data Structures',
+                'Database Management',
+                'Web Development',
+                'Mobile App Dev',
+                'Cloud Computing',
+                'AI Fundamentals',
+                'Cybersecurity'
+              ].map((path, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                  <span>{path}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom section */}
+        <div className="mt-16 pt-8 border-t border-gray-700">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm">
+              © 2024 EdFlourish. All rights reserved.
+            </p>
+            <div className="flex space-x-6">
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                Privacy Policy
               </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Learn PHP
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                Terms of Service
               </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Operating Systems
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Python Programming
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                CS Fundamentals
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                BCA Curriculum
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Software Engineering
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Frontend Technologies
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Backend Development
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Data Structures
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Database Management
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Web Development
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Mobile App Dev
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Cloud Computing
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                AI Fundamentals
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white">
-                Cybersecurity
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                Contact Us
               </a>
             </div>
           </div>

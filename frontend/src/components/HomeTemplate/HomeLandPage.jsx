@@ -1,5 +1,8 @@
 import logo from "../../../logo/bulb.png";
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom"
+
+
 console.log(logo); // Keep this for debugging
 
 const NavBarFront = () => {
@@ -18,12 +21,12 @@ const NavBarFront = () => {
 
         {/* Right section: Buttons */}
         <div className="flex items-center space-x-4">
-          <button className="px-6 py-2 text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-blue-500/20">
+          <Link to={"/login"} className="px-6 py-2 text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-blue-500/20">
             Login
-          </button>
-          <button className="px-6 py-2 text-white bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-green-500/20">
+          </Link>
+          <Link to={"/register"} className="px-6 py-2 text-white bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-green-500/20">
             Register
-          </button>
+          </Link>
         </div>
       </nav>
     </div>

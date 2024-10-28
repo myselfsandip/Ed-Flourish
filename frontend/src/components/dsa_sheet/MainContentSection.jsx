@@ -1,6 +1,7 @@
 import { Routes,Route } from "react-router-dom";
 import DsaSheet from "./DsaSheet"
-import PageNotFound from "../PageNotFound"
+import Settings from "../Settings";
+// import PageNotFound from "../PageNotFound";
 
 function MainContentSection() {
     {/* Routes */ }
@@ -8,7 +9,8 @@ function MainContentSection() {
     return (
             <Routes>
                 <Route path="/" element={<DsaSheet/>} />
-                <Route path="/*" element={<PageNotFound/>} />
+                <Route path="/settings" element={<Settings/>} />
+                {/* <Route path="/*" element={<PageNotFound/>} /> */}
             </Routes>
     );
 }

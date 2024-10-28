@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaCheck, FaTimes, FaHome, FaRedo, FaPlay } from 'react-icons/fa';
-import { questions } from '../../assets/data.js'; // Make sure this import path is correct
+import { questions } from '../../assets/data.js';
 
 function MockTest() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -56,23 +56,25 @@ function MockTest() {
 
     if (!isStarted) {
         return (
-            <div className="h-full bg-base-100 p-8 rounded-lg shadow-inner flex flex-col items-center justify-center">
-                <h2 className="text-3xl font-bold mb-6 text-gray-100">BCA Mock Test</h2>
-                <div className="bg-base-200 p-6 rounded-lg mb-6 text-center">
-                    <p className="text-lg mb-4">
-                        This mock test consists of 50 multiple-choice questions.
-                        You will have 60 minutes to complete the test.
-                    </p>
-                    <p className="text-lg mb-4">
-                        Make sure you're in a quiet environment and ready to begin.
-                    </p>
-                    <div className='flex justify-center'>
-                        <button
-                            onClick={handleStart}
-                            className="btn btn-primary btn-lg flex items-center justify-center"
-                        >
-                            <FaPlay className="mr-2" /> Start Test
-                        </button>
+            <div className="bg-gray-900 min-h-screen w-full lg:w-[78vw] mx-auto p-8">
+                <div className="h-4/6 p-8 rounded-lg shadow-inner flex flex-col items-center justify-center">
+                    <h2 className="text-3xl font-bold mb-6 text-gray-100">BCA Mock Test</h2>
+                    <div className="bg-gray-800 p-6 rounded-lg mb-6 text-center">
+                        <p className="text-lg mb-4 text-gray-300">
+                            This mock test consists of 50 multiple-choice questions.
+                            You will have 60 minutes to complete the test.
+                        </p>
+                        <p className="text-lg mb-4 text-gray-300">
+                            Make sure you're in a quiet environment and ready to begin.
+                        </p>
+                        <div className="flex justify-center">
+                            <button
+                                onClick={handleStart}
+                                className="btn btn-primary btn-lg flex items-center justify-center"
+                            >
+                                <FaPlay className="mr-2" /> Start Test
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,20 +84,20 @@ function MockTest() {
     if (showResults) {
         const score = calculateScore();
         return (
-            <div className="h-full bg-base-100 p-8 rounded-lg shadow-inner">
+            <div className="min-h-screen w-full lg:w-[78vw] mx-auto p-8 bg-gray-900">
                 <h2 className="text-3xl font-bold mb-6 text-gray-100">Mock Test Results</h2>
-                <div className="bg-base-200 p-6 rounded-lg mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-primary">
+                <div className="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 className="text-2xl font-semibold mb-4 text-blue-400">
                         Your Score: {score} / {questions.length}
                     </h3>
-                    <p className="text-lg mb-4">
+                    <p className="text-lg mb-4 text-gray-300">
                         Percentage: {((score / questions.length) * 100).toFixed(2)}%
                     </p>
                     <div className="space-y-4">
                         {questions.map((question) => (
-                            <div key={question.id} className="bg-base-300 p-4 rounded-lg">
-                                <p className="font-semibold mb-2">{question.question}</p>
-                                <p className="flex items-center">
+                            <div key={question.id} className="bg-gray-700 p-4 rounded-lg">
+                                <p className="font-semibold mb-2 text-gray-100">{question.question}</p>
+                                <p className="flex items-center text-gray-300">
                                     Your answer:
                                     <span className={`ml-2 ${selectedAnswers[question.id] === question.correctAnswer ? 'text-green-500' : 'text-red-500'}`}>
                                         {question.answers.find(a => a.id === selectedAnswers[question.id])?.text || 'Not answered'}
@@ -134,24 +136,24 @@ function MockTest() {
     }
 
     return (
-        <div className="h-full bg-base-100 p-8 rounded-lg shadow-inner">
+        <div className="min-h-screen w-full lg:w-[78vw] mx-auto p-8 bg-gray-900">
             <h2 className="text-3xl font-bold mb-6 text-gray-100">BCA Mock Test</h2>
-            <div className="bg-base-200 p-6 rounded-lg mb-6">
+            <div className="bg-gray-800 p-6 rounded-lg mb-6">
                 <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-semibold text-primary">
+                    <h3 className="text-xl font-semibold text-blue-400">
                         Question {currentQuestion + 1} of {questions.length}
                     </h3>
-                    <span className="text-lg font-semibold">Time Left: {formatTime(timeLeft)}</span>
+                    <span className="text-lg font-semibold text-gray-300">Time Left: {formatTime(timeLeft)}</span>
                 </div>
-                <p className="text-lg mb-4">{questions[currentQuestion].question}</p>
+                <p className="text-lg mb-4 text-gray-300">{questions[currentQuestion].question}</p>
                 <div className="space-y-2">
                     {questions[currentQuestion].answers.map((answer) => (
                         <button
                             key={answer.id}
                             onClick={() => handleAnswerSelect(questions[currentQuestion].id, answer.id)}
                             className={`w-full text-left p-3 rounded-lg transition-colors ${selectedAnswers[questions[currentQuestion].id] === answer.id
-                                ? 'bg-primary text-primary-content'
-                                : 'bg-base-300 hover:bg-primary/20'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-700 hover:bg-blue-500 hover:text-white'
                                 }`}
                         >
                             {answer.text}
@@ -163,7 +165,7 @@ function MockTest() {
                 <button
                     onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
                     disabled={currentQuestion === 0}
-                    className="btn btn-secondary"
+                    className="btn btn-neutral"
                 >
                     Previous
                 </button>

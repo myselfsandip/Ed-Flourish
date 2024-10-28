@@ -4,6 +4,7 @@ import { Semester } from "./Semester";
 import YearlyQuestions from "./YearlyQuestions";
 import MockText from "./MockTest";
 import PageNotFound from "../PageNotFound";
+import Settings from "./Settings";
 
 
 function MainContentSection() {
@@ -19,6 +20,7 @@ function MainContentSection() {
                 <Route path="sem4" element={<Semester sem={4} />} />
                 <Route path="yearly_questions" element={<YearlyQuestions/>} />
                 <Route path="mock_test" element={<MockText/>} />
+                <Route path="settings" element={<Settings/>} />
                 <Route path="/*" element={<PageNotFound/>} />
             </Routes>
     );

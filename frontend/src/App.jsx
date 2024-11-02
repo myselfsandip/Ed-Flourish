@@ -5,7 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './pages/Login';
 import Register from './pages/Register';
 import JavaSheet from './pages/JavaSheet';
-import Settings from './pages/Settings'
+import Settings from './pages/Settings';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path='/settings' element={<Settings />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/forgot_password' element={<ForgotPassword />} />
+          <Route path='/reset_password' element={<ResetPassword />} />
         </Routes>
       </BrowserRouter>
     </>

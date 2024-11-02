@@ -24,14 +24,14 @@ export const Sidebar = ({ isOpen, setIsOpen }) => {
             {/* Header */}
             <div className="px-6 py-8">
                 <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center space-x-3">
+                    <Link to={"/"} className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
                             <span className="text-white font-bold text-xl">Ed</span>
                         </div>
                         <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
                             BCA Portal
                         </h2>
-                    </div>
+                    </Link>
                     {/* Close button for mobile */}
                     <button 
                         onClick={() => setIsOpen(false)}

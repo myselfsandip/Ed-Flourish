@@ -16,7 +16,7 @@ export const Sidebar = ({currentpage,currentpageUrl ,isOpen, setIsOpen }) => {
         <div className={sidebarClasses}>
             {/* Header */}
             <div className="px-6 py-8">
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-8 ">
                     <Link to={"/"} className="flex items-center space-x-3 cursor-pointer">
                         <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
                             <span className="text-white font-bold text-xl">Ed</span>

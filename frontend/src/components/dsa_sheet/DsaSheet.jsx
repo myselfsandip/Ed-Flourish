@@ -16,8 +16,8 @@ const DsaSheet = () => {
     };
 
     return (
-        <div className="bg-gray-900 p-8 pt-16 min-h-screen w-full">
-            <div className="mx-auto max-w-6xl">
+        <div className="bg-gray-900 p-8 pt-16 min-h-screen w-full lg:w-[80vw] relative">
+            <div className="mx-auto w-full">
                 <h1 className="mb-4 text-4xl font-bold text-white">DSA</h1>
                 <p className="mb-8 text-lg text-gray-400">
                     Blind 75 leetcode is a list of carefully curated coding questions that have helped developers succeed in interviews at top tech companies.

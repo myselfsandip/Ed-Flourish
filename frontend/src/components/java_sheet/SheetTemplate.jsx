@@ -3,7 +3,6 @@ import { Navbar } from "../Navbar";
 import MainContentSection from "./MainContentSection";
 import { useState } from "react";
 
-
 const SheetTemplate = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -17,15 +16,15 @@ const SheetTemplate = () => {
                 />
             )}
             {/* Sidebar */}
-            <Sidebar currentpage="JAVA" currentpageUrl="/java"  isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+            <Sidebar currentpage="JAVA" currentpageUrl="/java" isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
             {/* Main Content */}
-            <div className="relative"> {/* Adding margin to adjust for the fixed sidebar */}
+            <div className="flex-1 ml-72 lg:ml-0 relative overflow-y-auto h-screen">
                 {/* Navbar */}
-                <Navbar  page="Java" onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} />
+                <Navbar page="Java" onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} />
 
                 {/* Main content area */}
-                <div className="mt-16 p-4 bg-gray-900 relative overflow-x-hidden"> {/* Adding top margin to accommodate fixed Navbar */}
+                <div className="mt-16 p-4 bg-gray-900">
                     <MainContentSection />
                 </div>
             </div>

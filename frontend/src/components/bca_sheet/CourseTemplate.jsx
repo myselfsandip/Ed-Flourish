@@ -1,4 +1,3 @@
-// CourseTemplate.jsx
 import MainContentSection from "./MainContentSection";
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
@@ -21,12 +20,12 @@ export default function CourseTemplate() {
             <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
             {/* Main Content */}
-            <div className="relative"> 
+            <div className="flex-1 ml-72 lg:ml-0 relative overflow-y-auto h-screen">
                 {/* Navbar */}
                 <Navbar onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} />
 
                 {/* Main content area */}
-                <div className="mt-16 p-4 bg-gray-900 relative overflow-x-hidden">
+                <div className="mt-16 p-4 bg-gray-900">
                     <MainContentSection />
                 </div>
             </div>

@@ -6,11 +6,11 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [formData, setFormData] = useState({
-        username: '',
+        name: '',
         email: '',
         password: '',
         confirmPassword: '',
-        course: ''  // New field for course selection
+        course: ''
     });
     const [errors, setErrors] = useState({});
 
@@ -31,10 +31,8 @@ const Register = () => {
     const validateForm = () => {
         const newErrors = {};
 
-        if (!formData.username.trim()) {
-            newErrors.username = 'Username is required';
-        } else if (formData.username.length < 3) {
-            newErrors.username = 'Username must be at least 3 characters';
+        if (!formData.name.trim()) {
+            newErrors.name = 'Name is required';
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -91,23 +89,24 @@ const Register = () => {
 
                 <div className="bg-white bg-opacity-5 backdrop-blur-lg rounded-2xl shadow-xl p-8">
                     <form onSubmit={handleSubmit} className="space-y-6">
+                        {/* Name Field */}
                         <div>
-                            <label className="text-sm text-gray-300">Username</label>
+                            <label className="text-sm text-gray-300">Name</label>
                             <div className="relative mt-2">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <FiUser className="h-5 w-5 text-gray-500" />
                                 </div>
                                 <input
                                     type="text"
-                                    name="username"
-                                    value={formData.username}
+                                    name="name"
+                                    value={formData.name}
                                     onChange={handleChange}
-                                    placeholder="Choose a username"
+                                    placeholder="Enter your name"
                                     className="w-full pl-10 pr-4 py-3 bg-[#1a1f2b] border border-gray-700 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-200 placeholder-gray-500"
                                 />
                             </div>
-                            {errors.username && (
-                                <p className="mt-1 text-sm text-red-500">{errors.username}</p>
+                            {errors.name && (
+                                <p className="mt-1 text-sm text-red-500">{errors.name}</p>
                             )}
                         </div>
 
@@ -211,6 +210,7 @@ const Register = () => {
                                 <p className="mt-1 text-sm text-red-500">{errors.course}</p>
                             )}
                         </div>
+
 
                         <button
                             type="submit"

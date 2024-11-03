@@ -18,16 +18,16 @@ const Login = () => {
                 {/* Login Card */}
                 <div className="bg-white bg-opacity-5 backdrop-blur-lg rounded-2xl shadow-xl p-8">
                     <form className="space-y-6">
-                        {/* Email/Username Field */}
+                        {/* Email Field */}
                         <div>
-                            <label className="text-sm text-gray-300">Email or Username</label>
+                            <label className="text-sm text-gray-300">Email</label>
                             <div className="relative mt-2">
                                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <FiMail className="h-5 w-5 text-gray-500" />
                                 </div>
                                 <input
                                     type="text"
-                                    placeholder="Enter your email or username"
+                                    placeholder="Enter your email"
                                     className="w-full pl-10 pr-4 py-3 bg-[#1a1f2b] border border-gray-700 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-200 placeholder-gray-500"
                                 />
                             </div>

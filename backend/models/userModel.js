@@ -13,9 +13,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    course:{
-        type:String,
-    },
+    selectedCourse: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
     lastLogin:{
         type:Date,
         default:Date.now

@@ -5,6 +5,7 @@ import cors from "cors";
 
 import { connectDB } from './db/connectDB.js';
 import authRoutes from "./routes/authRoutes.js";
+import courseRoutes from "./routes/courseRoutes.js";
 
 
 const app = express();
@@ -15,6 +16,10 @@ app.use(express.json());
 app.use(cors()); //For Making Connection between Client and Server
 
 app.use("/api/auth", authRoutes);
+app.use("/api/course", courseRoutes);
+
+
+
 
 
 app.listen(PORT, () => {

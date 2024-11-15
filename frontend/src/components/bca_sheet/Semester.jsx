@@ -52,6 +52,14 @@ export const Semester = ({ sem }) => {
         return <div className="text-white">Semester {sem} not found</div>;
     }
 
+    const problemStatusHandler = () => {
+        console.log("Status Clicked");
+        // axios.post()
+    }
+    const statusOnchangeHandler = (e) => {
+        console.log("Status Onchange Happend");
+    }
+
     return (
         <div className="bg-gray-900 p-8 pt-16 min-h-screen w-full lg:w-[80vw] relative">
             <div className="mx-auto w-full">
@@ -89,7 +97,7 @@ export const Semester = ({ sem }) => {
                                         {subject.problems.map((problem) => (
                                             <tr key={problem._id} className="hover:bg-gray-700 transition-colors">
                                                 <td className='p-3 flex justify-center'>
-                                                    <input type="checkbox" checked={problem.status} className="checkbox checkbox-primary mt-1" readOnly />
+                                                    <input onClick={problemStatusHandler} onChange={statusOnchangeHandler} type="checkbox" checked={problem.status} className="checkbox checkbox-primary mt-1" />
                                                 </td>
                                                 <td className="p-3">
                                                     <div className="flex items-center justify-center">

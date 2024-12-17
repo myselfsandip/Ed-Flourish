@@ -8,21 +8,23 @@ import JavaSheet from './pages/JavaSheet';
 import Settings from './pages/Settings';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import VerifyEmail from './pages/VerifyEmail';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path='/register' element={<Register />} />
+          <Route path='/verify_email' element={<VerifyEmail />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/forgot_password' element={<ForgotPassword />} />
+          <Route path='/reset_password' element={<ResetPassword />} />
           <Route path='/' element={<Home />} />
           <Route path='/dsa/*' element={<DsaSheet />} />
           <Route path='/java/*' element={<JavaSheet />} />
           <Route path='/bca/*' element={<Bca />} />
           <Route path='/settings' element={<Settings />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/forgot_password' element={<ForgotPassword />} />
-          <Route path='/reset_password' element={<ResetPassword />} />
         </Routes>
       </BrowserRouter>
     </>

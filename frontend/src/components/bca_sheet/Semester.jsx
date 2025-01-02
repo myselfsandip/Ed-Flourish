@@ -18,7 +18,7 @@ export const Semester = ({ sem }) => {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/course/')
+        axios.get(import.meta.env.VITE_API_SERVER_URL + `/api/course/`)
             .then((res) => {
                 console.log('API Response:', res.data); // Log the entire response
                 if (res.data && res.data.data && Array.isArray(res.data.data)) {

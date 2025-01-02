@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../logo/bulb.png";
 
 const NavBarFront = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +7,7 @@ const NavBarFront = () => {
   const LogoSection = () => (
     <div className="flex items-center space-x-3">
       <div className="rounded-lg overflow-hidden">
-        <img src={logo} alt="EdFlourish Logo" className="h-10 w-auto" />
+        {/* <img src={logo} alt="EdFlourish Logo" className="h-10 w-auto" /> */}
       </div>
       <h3 className="text-xl font-semibold text-white bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
         EdFlourish

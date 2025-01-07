@@ -17,8 +17,6 @@ import LoadingSpinner from './components/LoadingSpinner';
 
 
 function App() {
-  // console.log(import.meta.env.SERVER_URL); // Use your environment variable here
-
   return (
     <>
       <BrowserRouter>

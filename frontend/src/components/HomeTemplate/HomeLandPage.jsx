@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import NavBarFront from "./NavBarFront.jsx";
-import ResourceGrid from "./ResourceGrid.jsx";
-import WhyChooseUs from "./WhyChooseUs.jsx";
-import BlogSection from "./BlogSection.jsx";
-import Footer from "./Footer.jsx";
-// import WelcomeLanding from "./WelcomeLanding"
+import NavBarFront from "./NavbarFront";
+import ResourceGrid from "./ResourceGrid";
+import WhyChooseUs from "./WhyChooseUs";
+import BlogSection from "./BlogSection";
+import Footer from "./Footer";
+import WelcomeLanding from "./WelcomeLanding "
 
 
 const HomeLandPage = () => {

@@ -1,5 +1,4 @@
-
-import { HomeLandPage } from "../components/HomeTemplate/HomeLandPage";
+import HomeLandPage from "../components/HomeTemplate/HomeLandPage";
 
 function Home() {
   return (

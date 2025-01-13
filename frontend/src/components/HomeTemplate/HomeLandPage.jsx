@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import logo from "../../../logo/bulb.png";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -6,6 +7,15 @@ console.log(logo); // Keep this for debugging
 
 const NavBarFront = () => {
   const [isOpen, setIsOpen] = useState(false);
+=======
+import NavBarFront from "./NavbarFront";
+import ResourceGrid from "./ResourceGrid";
+import WhyChooseUs from "./WhyChooseUs";
+import BlogSection from "./BlogSection";
+import Footer from "./Footer";
+import WelcomeLanding from "./WelcomeLanding "
+
+>>>>>>> 99358ddc0109684007f4e258abe3117b02b8501d
 
   return (
     <div data-theme="night" className="fixed top-0 left-0 right-0 z-50">

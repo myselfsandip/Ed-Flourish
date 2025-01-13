@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import { FiMail, FiLock } from 'react-icons/fi';
+// import { FiMail, FiLock } from 'react-icons/fi';
+import axios from 'axios';
 
 const VerifyEmail = () => {
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
@@ -30,7 +31,7 @@ const VerifyEmail = () => {
 
     const handleVerify = (e) => {
         e.preventDefault();
-        
+
         // Check if all OTP fields are filled
         const fullOtp = otp.join('');
         if (fullOtp.length !== 6) {
@@ -40,8 +41,26 @@ const VerifyEmail = () => {
 
         try {
             // Here you would typically call your verification API
+            axios.post(import.meta.env.VITE_API_SERVER_URL + '/api/auth/verify_email', { code: fullOtp }).then((res) => {
+                if (res.data.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Email Verified Successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => navigate('/'));
+                }
+            }).catch((err) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error!!",
+                    text: "OTP Verification Failed",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
             console.log('Verifying OTP:', fullOtp);
-            // Reset error if verification is successful
             setError('');
             // Redirect or show success message
         } catch (err) {
@@ -53,7 +72,7 @@ const VerifyEmail = () => {
         if (resendCooldown === 0) {
             // Implement OTP resend logic here
             console.log('Resending OTP');
-            
+
             // Start cooldown timer
             setResendCooldown(60);
             const timer = setInterval(() => {
@@ -111,12 +130,11 @@ const VerifyEmail = () => {
                                     type="button"
                                     onClick={handleResendOtp}
                                     disabled={resendCooldown > 0}
-                                    className={`text-blue-400 hover:underline ${
-                                        resendCooldown > 0 ? 'opacity-50 cursor-not-allowed' : ''
-                                    }`}
+                                    className={`text-blue-400 hover:underline ${resendCooldown > 0 ? 'opacity-50 cursor-not-allowed' : ''
+                                        }`}
                                 >
-                                    {resendCooldown > 0 
-                                        ? `Resend OTP in ${resendCooldown} seconds` 
+                                    {resendCooldown > 0
+                                        ? `Resend OTP in ${resendCooldown} seconds`
                                         : 'Resend OTP'}
                                 </button>
                             </div>

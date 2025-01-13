@@ -1,88 +1,12 @@
-<<<<<<< HEAD
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import logo from "../../../logo/bulb.png";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Footer from '../Footer';
+import NavBarFront from "../NavBarFront"
 
 console.log(logo); // Keep this for debugging
 
-const NavBarFront = () => {
-  const [isOpen, setIsOpen] = useState(false);
-=======
-import NavBarFront from "./NavbarFront";
-import ResourceGrid from "./ResourceGrid";
-import WhyChooseUs from "./WhyChooseUs";
-import BlogSection from "./BlogSection";
-import Footer from "./Footer";
-import WelcomeLanding from "./WelcomeLanding "
 
->>>>>>> 99358ddc0109684007f4e258abe3117b02b8501d
-
-  return (
-    <div data-theme="night" className="fixed top-0 left-0 right-0 z-50">
-      <nav className="flex justify-between items-center py-4 px-6 md:px-12 lg:px-24 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
-        {/* Left section: Logo */}
-        <div className="flex items-center space-x-3">
-          <div className="rounded-lg overflow-hidden">
-            <img src={logo} alt="EdFlourish Logo" className="h-10 w-auto" />
-          </div>
-          <h3 className="text-xl font-semibold text-white bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            EdFlourish
-          </h3>
-        </div>
-
-        {/* Custom Hamburger Button */}
-        <div className="lg:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex flex-col space-y-1.5 p-2 focus:outline-none"
-          >
-            <div className="w-6 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-            <div className="w-6 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-            <div className="w-6 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
-          </button>
-        </div>
-
-        {/* Right section: Buttons - Hidden on Mobile & Tablet */}
-        <div className="hidden lg:flex items-center space-x-4">
-          <Link
-            to={"/login"}
-            className="px-6 py-2 text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-blue-500/20"
-          >
-            Login
-          </Link>
-          <Link
-            to={"/register"}
-            className="px-6 py-2 text-white bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-green-500/20"
-          >
-            Register
-          </Link>
-        </div>
-      </nav>
-
-      {/* Mobile Menu - Modified to display buttons inline */}
-      {isOpen && (
-        <div className="lg:hidden bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
-          <div className="px-6 py-4 flex justify-center space-x-4">
-            <Link
-              to={"/login"}
-              className="px-6 py-2 text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-blue-500/20"
-              onClick={() => setIsOpen(false)}
-            >
-              Login
-            </Link>
-            <Link
-              to={"/register"}
-              className="px-6 py-2 text-white bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 rounded-lg font-medium transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-green-500/20"
-              onClick={() => setIsOpen(false)}
-            >
-              Register
-            </Link>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 const Content1 = () => {
   const [activeTab, setActiveTab] = useState("python");
@@ -92,19 +16,10 @@ const Content1 = () => {
     python: [
       { code: "# Welcome to Ed-Flourish", color: "text-gray-400" },
       { code: "def greet():", color: "text-sky-400" },
-      {
-        code: '    message = "Foster your knowledge"',
-        color: "text-green-400",
-      },
-      {
-        code: '    journey = "Start your journey with us"',
-        color: "text-green-400",
-      },
+      { code: '    message = "Foster your knowledge"', color: "text-green-400" },
+      { code: '    journey = "Start your journey with us"', color: "text-green-400" },
       { code: "", color: "text-white" },
-      {
-        code: "    print('Welcome to Ed-Flourish 🚀')",
-        color: "text-purple-400",
-      },
+      { code: "    print('Welcome to Ed-Flourish 🚀')", color: "text-purple-400" },
       { code: "    print(f'{message} 🔥')", color: "text-purple-400" },
       { code: "    print(f'{journey} ⭐')", color: "text-purple-400" },
       { code: "", color: "text-white" },
@@ -114,19 +29,10 @@ const Content1 = () => {
     javascript: [
       { code: "// Welcome to Ed-Flourish", color: "text-gray-400" },
       { code: "const welcomeMessage = () => {", color: "text-sky-400" },
-      {
-        code: '  const message = "Foster your knowledge";',
-        color: "text-green-400",
-      },
-      {
-        code: '  const journey = "Start your journey with us";',
-        color: "text-green-400",
-      },
+      { code: '  const message = "Foster your knowledge";', color: "text-green-400" },
+      { code: '  const journey = "Start your journey with us";', color: "text-green-400" },
       { code: "", color: "text-white" },
-      {
-        code: "  console.log('Welcome to Ed-Flourish 🚀');",
-        color: "text-purple-400",
-      },
+      { code: "  console.log('Welcome to Ed-Flourish 🚀');", color: "text-purple-400" },
       { code: "  console.log(`${message} 🔥`);", color: "text-purple-400" },
       { code: "  console.log(`${journey} ⭐`);", color: "text-purple-400" },
       { code: "}", color: "text-sky-400" },
@@ -136,31 +42,13 @@ const Content1 = () => {
     java: [
       { code: "// Welcome to Ed-Flourish", color: "text-gray-400" },
       { code: "public class Welcome {", color: "text-sky-400" },
-      {
-        code: "    public static void main(String[] args) {",
-        color: "text-purple-400",
-      },
-      {
-        code: '        String message = "Foster your knowledge";',
-        color: "text-green-400",
-      },
-      {
-        code: '        String journey = "Start your journey with us";',
-        color: "text-green-400",
-      },
+      { code: "    public static void main(String[] args) {", color: "text-purple-400" },
+      { code: '        String message = "Foster your knowledge";', color: "text-green-400" },
+      { code: '        String journey = "Start your journey with us";', color: "text-green-400" },
       { code: "", color: "text-white" },
-      {
-        code: '        System.out.println("Welcome to Ed-Flourish 🚀");',
-        color: "text-orange-400",
-      },
-      {
-        code: '        System.out.println(message + " 🔥");',
-        color: "text-orange-400",
-      },
-      {
-        code: '        System.out.println(journey + " ⭐");',
-        color: "text-orange-400",
-      },
+      { code: '        System.out.println("Welcome to Ed-Flourish 🚀");', color: "text-orange-400" },
+      { code: '        System.out.println(message + " 🔥");', color: "text-orange-400" },
+      { code: '        System.out.println(journey + " ⭐");', color: "text-orange-400" },
       { code: "    }", color: "text-purple-400" },
       { code: "}", color: "text-sky-400" },
     ],
@@ -168,9 +56,7 @@ const Content1 = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentLine(
-        (prev) => (prev + 1) % (codeSnippets[activeTab].length + 1)
-      );
+      setCurrentLine((prev) => (prev + 1) % (codeSnippets[activeTab].length + 1));
     }, 800);
     return () => clearInterval(timer);
   }, [activeTab]);
@@ -188,7 +74,6 @@ const Content1 = () => {
         <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4 mt-md-2">
           Welcome to Ed-Flourish
         </h1>
-
         <p className="text-lg text-gray-300">Start your journey with us</p>
       </div>
 
@@ -212,11 +97,10 @@ const Content1 = () => {
             <button
               key={key}
               onClick={() => setActiveTab(key)}
-              className={`px-6 py-3 text-sm font-medium transition-all duration-300 ${
-                activeTab === key
+              className={`px-6 py-3 text-sm font-medium transition-all duration-300 ${activeTab === key
                   ? "bg-[#1a1e24] text-white border-t-2 border-blue-400"
                   : "text-gray-400 hover:bg-[#1a1e24] hover:text-gray-300"
-              }`}
+                }`}
             >
               <div className="flex items-center space-x-2">
                 <div className={`w-2 h-2 rounded-full ${lang.color}`}></div>
@@ -243,11 +127,10 @@ const Content1 = () => {
               {codeSnippets[activeTab].map((line, index) => (
                 <div
                   key={index}
-                  className={`py-1 transition-all duration-500 ${
-                    index <= currentLine
+                  className={`py-1 transition-all duration-500 ${index <= currentLine
                       ? "opacity-100 translate-x-0"
                       : "opacity-0 translate-x-4"
-                  }`}
+                    }`}
                 >
                   <span className={line.color}>{line.code}</span>
                 </div>
@@ -283,13 +166,9 @@ const Content1 = () => {
               <span className="text-blue-400">$</span>
               <span className="ml-2">Running welcome script...</span>
             </div>
-            <div className="mt-2">
-              Initializing Ed-Flourish environment... ⚡
-            </div>
+            <div className="mt-2">Initializing Ed-Flourish environment... ⚡</div>
             <div className="mt-1">Loading learning modules... ✓</div>
-            <div className="mt-1 text-emerald-400">
-              Ready to start coding! 🚀
-            </div>
+            <div className="mt-1 text-emerald-400">Ready to start coding! 🚀</div>
           </div>
         </div>
       </div>
@@ -508,127 +387,25 @@ const BlogSection = () => {
           ))}
         </div>
       </div>
+      <div className="mt-10 pt-4 text-center">
+        <Link to={"/blogs"}
+          className="px-6 py-3 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-purple-500 hover:to-blue-500 hover:shadow-xl"
+        >
+          See More Blogs
+        </Link>
+      </div>
     </div>
   );
 };
 
-const Footer = () => {
-  return (
-    <footer className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* Left section */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
-                <span className="text-xl font-bold">Ed</span>
-              </div>
-              <h1 className="text-2xl font-bold">EdFlourish</h1>
-            </div>
-            <div className="space-y-4">
-              <p className="text-gray-300 leading-relaxed">
-                Learn and foster your knowledge in the coding world with our
-                site. Learn, grow, and explore!
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                Our platform is dedicated to helping you master the art of
-                coding. Whether you're a beginner or an experienced developer,
-                we have resources to support your learning journey.
-              </p>
-            </div>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors duration-200">
-              Join Community
-            </button>
-          </div>
 
-          {/* Right section */}
-          <div className="lg:col-span-3">
-            <h2 className="text-xl font-bold mb-8">Learning Paths</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8">
-              {[
-                "Learn Java",
-                "Learn PHP",
-                "Operating Systems",
-                "Python Programming",
-                "CS Fundamentals",
-                "BCA Curriculum",
-                "Software Engineering",
-                "Frontend Technologies",
-                "Backend Development",
-                "Data Structures",
-                "Database Management",
-                "Web Development",
-                "Mobile App Dev",
-                "Cloud Computing",
-                "AI Fundamentals",
-                "Cybersecurity",
-              ].map((path, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="text-gray-300 hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                  <span>{path}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
 
-        {/* Bottom section */}
-        <div className="mt-16 pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
-              © 2024 EdFlourish. All rights reserved.
-            </p>
-            <div className="flex space-x-6">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
-              >
-                Contact Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
-export const HomeLandPage = () => {
+const HomeLandPage = () => {
   return (
     <div className="bg-[#0f1319] min-h-screen flex flex-col">
       <NavBarFront />
       <main className="flex-grow">
         <div className="pt-24">
-          {" "}
-          {/* Add top padding to account for fixed navbar */}
           <Content1 />
         </div>
         <ResourceGrid />
@@ -639,3 +416,7 @@ export const HomeLandPage = () => {
     </div>
   );
 };
+
+
+
+export default HomeLandPage;

@@ -7,7 +7,7 @@ import { verifyToken } from "../middlewares/verifyToken.js";
 const router = express.Router();
 
 router.post('/register', register);
-router.post('/verify_user', verifyEmail);
+router.post('/verify_email', verifyEmail);
 router.post("/login", login);
 router.post("/logout", logout);
 router.post("/forgot_password", forgotPassword);

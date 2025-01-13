@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { FiMail, FiLock, FiUser, FiEye, FiEyeOff } from 'react-icons/fi';
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [formData, setFormData] = useState({
@@ -67,11 +71,30 @@ const Register = () => {
 
         if (Object.keys(newErrors).length === 0) {
             try {
-                console.log('Form submitted:', formData);
-                // Add your registration API call here
+                const res = await axios.post(import.meta.env.VITE_API_SERVER_URL + "/api/auth/register", {
+                    name: formData.name,
+                    email: formData.email,
+                    password: formData.password,
+                    course: formData.course
+                });
+
+                if (res.data.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: res.data.msg || "Registration Successful!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => navigate('/verify_email'));
+                } else {
+                    throw new Error(res.data.msg || "Registration failed");
+                }
             } catch (error) {
-                console.error('Registration error:', error);
-                setErrors({ submit: 'Registration failed. Please try again.' });
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: error.response?.data?.msg || "Registration failed. Please try again.",
+                });
             }
         } else {
             setErrors(newErrors);
@@ -202,16 +225,15 @@ const Register = () => {
                                 >
                                     <option value="" disabled>Select your course</option>
                                     <option value="BCA">BCA</option>
-                                    <option value="BBA">BBA</option>
-                                    <option value="BTech">BTech</option>
+                                    {/* <option value="BBA">BBA</option>
+                                    <option value="BTech">BTech</option> */}
                                 </select>
                             </div>
                             {errors.course && (
                                 <p className="mt-1 text-sm text-red-500">{errors.course}</p>
                             )}
                         </div>
-
-
+                        {/* ... */}
                         <button
                             type="submit"
                             className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-semibold hover:shadow-lg transition duration-300"

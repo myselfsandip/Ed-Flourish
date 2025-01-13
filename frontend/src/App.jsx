@@ -14,6 +14,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import VerifyEmail from './pages/VerifyEmail';
 import LoadingSpinner from './components/LoadingSpinner';
+import Blogs from './pages/Blogs';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path='/forgot_password' element={<ForgotPassword />} />
             <Route path='/reset_password' element={<ResetPassword />} />
             <Route path='/' element={<Home />} />
+            <Route path='/blogs' element={<Blogs />} />
             <Route path='/dsa/*' element={<DsaSheet />} />
             <Route path='/java/*' element={<JavaSheet />} />
             <Route path='/bca/*' element={<Bca />} />

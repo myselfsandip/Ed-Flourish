@@ -76,7 +76,12 @@ const Register = () => {
                     email: formData.email,
                     password: formData.password,
                     course: formData.course
-                } , {withCredentials: true});
+                }, {
+                    withCredentials: true,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
 
                 if (res.data.success) {
                     Swal.fire({

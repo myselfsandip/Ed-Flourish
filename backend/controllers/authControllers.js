@@ -235,7 +235,9 @@ export const checkAuth = async (req, res) => {
 
         //Find the User
         const user = await User.findOne({_id:userId}).select("-password");
-        if(!user) return res.status(401).json({success:false,msg:"Invalid User"});
+        if(!user) {
+            return res.status(401).json({success:false,msg:"Invalid User"});
+        }
         return res.status(201).json({success:true,msg:"Auth Successfull",user});
     } catch (error) {
         return res.status(500).json({ success: false, msg: "Internal Server Error" });

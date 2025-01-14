@@ -10,10 +10,7 @@ export const connectDB = async () => {
     console.log("Connection String:", process.env.MONGO_URL);
 
     // Connect to MongoDB
-    const conn = await mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(process.env.MONGO_URL);
 
     // Log success
     console.log(`MongoDB Connected: ${conn.connection.host}`);

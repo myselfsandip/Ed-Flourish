@@ -98,8 +98,8 @@ const Content1 = () => {
               key={key}
               onClick={() => setActiveTab(key)}
               className={`px-6 py-3 text-sm font-medium transition-all duration-300 ${activeTab === key
-                  ? "bg-[#1a1e24] text-white border-t-2 border-blue-400"
-                  : "text-gray-400 hover:bg-[#1a1e24] hover:text-gray-300"
+                ? "bg-[#1a1e24] text-white border-t-2 border-blue-400"
+                : "text-gray-400 hover:bg-[#1a1e24] hover:text-gray-300"
                 }`}
             >
               <div className="flex items-center space-x-2">
@@ -128,8 +128,8 @@ const Content1 = () => {
                 <div
                   key={index}
                   className={`py-1 transition-all duration-500 ${index <= currentLine
-                      ? "opacity-100 translate-x-0"
-                      : "opacity-0 translate-x-4"
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-4"
                     }`}
                 >
                   <span className={line.color}>{line.code}</span>
@@ -401,6 +401,8 @@ const BlogSection = () => {
 
 
 const HomeLandPage = () => {
+
+
   return (
     <div className="bg-[#0f1319] min-h-screen flex flex-col">
       <NavBarFront />

@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { RiMenu3Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import useLoggedIn from "../../hooks/useLoggedIn"
+
 
 export const Navbar = ({ onMenuClick }) => {
     const [dropdownState, setDropdownState] = useState(false);
+    const {logout} = useLoggedIn();
 
     return (
         <div className="fixed top-0 left-0 lg:left-72 right-0 z-10 bg-gray-900 border-b border-gray-800 shadow-md">
@@ -36,7 +39,7 @@ export const Navbar = ({ onMenuClick }) => {
                             <Link className="block px-4 py-2 text-gray-300 hover:bg-gray-700 cursor-pointer">Profile</Link>
                             <Link to="/bca/settings" className="block px-4 py-2 text-gray-300 hover:bg-gray-700 cursor-pointer">Settings</Link>
                             <div className="border-t border-gray-700"></div>
-                            <Link className="block px-4 py-2 text-red-400 hover:bg-gray-700 cursor-pointer">Logout</Link>
+                            <button onClick={logout} className="block px-4 py-2 text-red-400 hover:bg-gray-700 cursor-pointer">Logout</button>
                         </div>
                     )}
                 </div>

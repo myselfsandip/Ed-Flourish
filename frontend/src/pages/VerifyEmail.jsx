@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 // import { FiMail, FiLock } from 'react-icons/fi';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const VerifyEmail = () => {
     const navigate = useNavigate();

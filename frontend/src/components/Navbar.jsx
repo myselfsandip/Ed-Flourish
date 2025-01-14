@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { RiMenu3Line } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import useLoggedIn from "../hooks/useLoggedIn"
+
 
 export const Navbar = ({ onMenuClick ,page }) => {
     const [dropdownState, setDropdownState] = useState(false);
@@ -35,7 +37,7 @@ export const Navbar = ({ onMenuClick ,page }) => {
                             <Link className="block px-4 py-2 text-gray-300 hover:bg-gray-700 cursor-pointer">Profile</Link>
                             <Link to={"/" + page + "/settings"} className="block px-4 py-2 text-gray-300 hover:bg-gray-700 cursor-pointer">Settings</Link>
                             <div className="border-t border-gray-700"></div>
-                            <Link className="block px-4 py-2 text-red-400 hover:bg-gray-700 cursor-pointer">Logout</Link>
+                            <butt className="block px-4 py-2 text-red-400 hover:bg-gray-700 cursor-pointer">Logout</butt>
                         </div>
                     )}
                 </div>

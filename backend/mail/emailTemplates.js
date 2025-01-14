@@ -47,7 +47,7 @@ export const WELCOME_EMAIL_TEMPLATE = `
     <p>Dear valued member,</p>
     <p>We're thrilled to have you join the ED Flourish community! Your account has been successfully verified and is now ready to use.</p>
     <div style="text-align: center; margin: 30px 0;">
-      <a href="https://ed-flourish.vercel.app/login" style="background-color: #4CAF50; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">Get Started</a>
+      <a href="${process.env.FRONTEND_URL}" style="background-color: #4CAF50; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">Get Started</a>
     </div>
     <p>With ED Flourish, you can:</p>
     <ul style="list-style-type: none; padding-left: 0;">

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2"
 
 const Login = () => {
     const navigate = useNavigate();

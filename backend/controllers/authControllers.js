@@ -8,6 +8,7 @@ import { sendResetSuccessEmail, sendVerificationEmail, sendWelcomeEmail } from "
 
 //Registration
 export const register = async (req, res) => {
+    console.log('reg entered')
     try {
         const parsedPayload = userRegisterSchema.safeParse(req.body);
         if (!parsedPayload.success) {
@@ -43,7 +44,7 @@ export const register = async (req, res) => {
         // Send mail
         sendVerificationEmail(user._id, email, name, verificationToken);
 
-        return res.status(201).json({
+        return res.status(200).json({
             msg: "User Created Successfully!",
             success: true,
             user: {

@@ -1,9 +1,38 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const formSubmitHandler = (e) => {
+        e.preventDefault();
+
+        axios.post(import.meta.env.VITE_API_SERVER_URL + '/api/auth/login', { email, password }, {withCredentials: true}).then((res) => {
+            if (res.data.success) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: res.data.msg || "Login Successful!",
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => navigate('/'));
+            } else {
+                throw new Error(res.data.msg || "Login failed");
+            }
+        }).catch((err) => {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: err.response?.data?.msg || "Login failed. Please try again.",
+            });
+        })
+    }
 
     return (
         <div className="min-h-screen bg-[#0d1117] flex items-center justify-center p-4 bg-gradient-to-br from-[#0d1117] via-[#161b22] to-[#0d1117]">
@@ -17,7 +46,7 @@ const Login = () => {
 
                 {/* Login Card */}
                 <div className="bg-white bg-opacity-5 backdrop-blur-lg rounded-2xl shadow-xl p-8">
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={formSubmitHandler}>
                         {/* Email Field */}
                         <div>
                             <label className="text-sm text-gray-300">Email</label>
@@ -27,6 +56,8 @@ const Login = () => {
                                 </div>
                                 <input
                                     type="text"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
                                     placeholder="Enter your email"
                                     className="w-full pl-10 pr-4 py-3 bg-[#1a1f2b] border border-gray-700 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-200 placeholder-gray-500"
                                 />
@@ -43,6 +74,8 @@ const Login = () => {
                                 <input
                                     type={showPassword ? "text" : "password"}
                                     placeholder="Enter your password"
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
                                     className="w-full pl-10 pr-12 py-3 bg-[#1a1f2b] border border-gray-700 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-200 placeholder-gray-500"
                                 />
                                 <button
@@ -80,9 +113,9 @@ const Login = () => {
                             Sign in
                         </button>
 
-                        
 
-                        
+
+
 
                         {/* Register Link */}
                         <div className="text-center text-gray-400 mt-5">

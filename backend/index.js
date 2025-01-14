@@ -13,7 +13,11 @@ const PORT = process.env.PORT || 3000;
 
 // Middlewares
 app.use(express.json());
-app.use(cors()); //For Making Connection between Client and Server
+app.options('*', cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+}));
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/course", courseRoutes);

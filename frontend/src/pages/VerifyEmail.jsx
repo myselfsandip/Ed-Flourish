@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { FiMail, FiLock } from 'react-icons/fi';
 import axios from 'axios';
 
 const VerifyEmail = () => {
+    const navigate = useNavigate();
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     const [error, setError] = useState('');
     const [resendCooldown, setResendCooldown] = useState(0);
@@ -50,12 +51,14 @@ const VerifyEmail = () => {
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => navigate('/'));
+                } else {
+                    throw new Error(res.data.msg || "Email Verification failed");
                 }
             }).catch((err) => {
                 Swal.fire({
                     icon: "error",
                     title: "Error!!",
-                    text: "OTP Verification Failed",
+                    text: "Email Verification Failed",
                     showConfirmButton: false,
                     timer: 1500
                 })

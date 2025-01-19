@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 // Middlewares
 // Configure CORS - place this before routes
 app.use(cors({
-    origin: process.env.FRONTEND_URL , 
+    origin: process.env.FRONTEND_URL,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers

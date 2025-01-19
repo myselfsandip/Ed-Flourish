@@ -11,6 +11,8 @@ import {
     FaTimes 
 } from 'react-icons/fa';
 import { FaUserCheck } from "react-icons/fa6";
+import bulb from '../../logo/bulb.png';
+
 
 
 const NavBarFront = () => {
@@ -23,7 +25,7 @@ const NavBarFront = () => {
                 {/* Left section: Logo */}
                 <Link to={"/"} className="flex items-center space-x-3">
                     <div className="rounded-lg overflow-hidden">
-                        <img src="../../logo/bulb.png" alt="EdFlourish Logo" className="h-10 w-auto" />
+                        <img src={bulb} alt="EdFlourish Logo" className="h-10 w-auto" />
                     </div>
                     <h3 className="text-xl font-semibold text-white bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                         EdFlourish

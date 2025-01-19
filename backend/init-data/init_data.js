@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { Course } from '../models/courseModel.js';
 // MongoDB connection string (replace with your actual connection string)
-const MONGODB_URI = 'mongodb+srv://edflourish0:wNfp3NCVkMHWQZRi@cluster0.5xmym.mongodb.net/ed_flourish';
+// const MONGODB_URI = ;
 
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })

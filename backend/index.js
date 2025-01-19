@@ -26,6 +26,10 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/course", courseRoutes);
 
+app.get('/test',(req,res) => {
+    res.json({success:true,msg:"API Working Fine"});
+})
+
 
 // Add this after your routes
 app.use((err, req, res, next) => {

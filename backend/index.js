@@ -12,13 +12,11 @@ import courseRoutes from "./routes/courseRoutes.js"
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
-// Configure CORS - place this before routes
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'] 
 }));
 app.use(cookieParser());
 app.use(express.json());

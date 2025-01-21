@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaUser, FaEnvelope, FaGraduationCap, FaClock, FaCheckCircle, FaExclamationCircle, FaEdit, FaSignOutAlt } from "react-icons/fa"
 import useLoggedIn from "../hooks/useLoggedIn"
-import { formatDistanceToNow } from "date-fns"
 import NavBarFront from "../components/NavBarFront"
 import Footer from "../components/Footer"
 
@@ -63,12 +62,19 @@ const Profile = () => {
 
     const formatLastLogin = (lastLogin) => {
         if (!lastLogin) return "Not available"
-        try {
-            return formatDistanceToNow(lastLogin, { addSuffix: true })
-        } catch (error) {
-            console.error("Error formatting last login time:", error)
-            return "Invalid date"
-        }
+
+        const now = new Date()
+        const diffInSeconds = Math.floor((now - lastLogin) / 1000)
+
+        const seconds = diffInSeconds % 60
+        const minutes = Math.floor(diffInSeconds / 60) % 60
+        const hours = Math.floor(diffInSeconds / 3600) % 24
+        const days = Math.floor(diffInSeconds / (3600 * 24))
+
+        if (days > 0) return `${days} day${days > 1 ? "s" : ""} ago`
+        if (hours > 0) return `${hours} hour${hours > 1 ? "s" : ""} ago`
+        if (minutes > 0) return `${minutes} minute${minutes > 1 ? "s" : ""} ago`
+        return `${seconds} second${seconds > 1 ? "s" : ""} ago`
     }
 
     return (
@@ -162,8 +168,8 @@ const Profile = () => {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     className={`w-full sm:w-auto px-6 py-2.5 rounded-lg flex items-center justify-center gap-2 font-medium transition-colors duration-200 ${isEditing
-                                            ? "bg-green-500/10 text-green-400 hover:bg-green-500/20"
-                                            : "bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20"
+                                        ? "bg-green-500/10 text-green-400 hover:bg-green-500/20"
+                                        : "bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20"
                                         }`}
                                     onClick={isEditing ? handleSave : handleEdit}
                                 >

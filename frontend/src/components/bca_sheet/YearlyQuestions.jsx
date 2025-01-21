@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import styled from "styled-components"
 import { FaDownload, FaEye, FaBookmark, FaExternalLinkAlt, FaSearch, FaFilter } from "react-icons/fa"
 
+import { semesterData } from "../../static_data/YearlyQuestionsData"
 const PageContainer = styled(motion.div)`
     min-height: 100vh;
     background: linear-gradient(to bottom right, #0f172a, #1e293b);
@@ -88,18 +89,6 @@ const FilterButton = styled(motion.button)`
     }
 `
 
-const semesterData = [
-    {
-        semester: 1,
-        papers: [
-            { name: "DIGITAL ELECTRONICS BCAC101", year: 2024, downloads: 234, views: 1205 },
-            { name: "PROGRAMMING FOR PROBLEM SOLVING THROUGH C BCAC102", year: 2024, downloads: 189, views: 982 },
-            { name: "DIGITAL ELECTRONICS BCAC102", year: 2023, downloads: 567, views: 2341 },
-            { name: "PROGRAMMING FOR PROBLEM SOLVING BCAC101", year: 2023, downloads: 432, views: 1876 },
-        ],
-    },
-]
-
 function YearlyQuestions() {
     const [activeSemester, setActiveSemester] = useState(1)
     const [searchQuery, setSearchQuery] = useState("")
@@ -117,9 +106,26 @@ function YearlyQuestions() {
         })
     }
 
-    const filteredPapers = semesterData[0].papers.filter((paper) =>
-        paper.name.toLowerCase().includes(searchQuery.toLowerCase()),
-    )
+    const filteredPapers = useMemo(() => {
+        const activeSemesterData = semesterData.find((sem) => sem.semester === activeSemester)
+        return activeSemesterData.papers.filter((paper) => paper.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    }, [activeSemester, searchQuery])
+
+    const totalPapers = useMemo(() => {
+        return semesterData.reduce((total, semester) => total + semester.papers.length, 0)
+    }, [])
+
+    const totalDownloads = useMemo(() => {
+        return semesterData.reduce((total, semester) => {
+            return total + semester.papers.reduce((semTotal, paper) => semTotal + paper.downloads, 0)
+        }, 0)
+    }, [])
+
+    const totalViews = useMemo(() => {
+        return semesterData.reduce((total, semester) => {
+            return total + semester.papers.reduce((semTotal, paper) => semTotal + paper.views, 0)
+        }, 0)
+    }, [])
 
     return (
         <PageContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -147,15 +153,15 @@ function YearlyQuestions() {
 
                         <div className="flex flex-wrap gap-4 mb-8">
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 w-full">
-                                {[1, 2, 3, 4, 5, 6].map((semester) => (
+                                {semesterData.map((semester) => (
                                     <SemesterButton
-                                        key={semester}
-                                        $isActive={activeSemester === semester}
-                                        onClick={() => setActiveSemester(semester)}
+                                        key={semester.semester}
+                                        $isActive={activeSemester === semester.semester}
+                                        onClick={() => setActiveSemester(semester.semester)}
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                     >
-                                        Sem {semester}
+                                        Sem {semester.semester}
                                     </SemesterButton>
                                 ))}
                             </div>
@@ -173,7 +179,7 @@ function YearlyQuestions() {
                             <AnimatePresence>
                                 {filteredPapers.map((paper, index) => (
                                     <Card
-                                        key={index}
+                                        key={`${paper.name}-${paper.year}`}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -20 }}
@@ -208,13 +214,16 @@ function YearlyQuestions() {
                                                     >
                                                         <FaBookmark size={16} />
                                                     </motion.button>
-                                                    <motion.button
+                                                    <motion.a
+                                                        href={paper.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
                                                         whileHover={{ scale: 1.1 }}
                                                         whileTap={{ scale: 0.9 }}
                                                         className="text-blue-400 hover:text-blue-300"
                                                     >
                                                         <FaExternalLinkAlt size={16} />
-                                                    </motion.button>
+                                                    </motion.a>
                                                 </div>
                                             </div>
                                         </div>
@@ -230,15 +239,15 @@ function YearlyQuestions() {
                             <div className="space-y-4">
                                 <div className="bg-gray-800/50 rounded-lg p-4">
                                     <div className="text-gray-400 mb-1">Total Papers</div>
-                                    <div className="text-3xl font-bold text-white">48</div>
+                                    <div className="text-3xl font-bold text-white">{totalPapers}</div>
                                 </div>
                                 <div className="bg-gray-800/50 rounded-lg p-4">
                                     <div className="text-gray-400 mb-1">Downloads</div>
-                                    <div className="text-3xl font-bold text-white">2,524</div>
+                                    <div className="text-3xl font-bold text-white">{totalDownloads}</div>
                                 </div>
                                 <div className="bg-gray-800/50 rounded-lg p-4">
                                     <div className="text-gray-400 mb-1">Views</div>
-                                    <div className="text-3xl font-bold text-white">11,218</div>
+                                    <div className="text-3xl font-bold text-white">{totalViews}</div>
                                 </div>
                             </div>
                         </Card>

@@ -70,13 +70,19 @@ export const Navbar = ({ onMenuClick, isSidebarOpen, isMobile }) => {
             }
         }
 
-        document.addEventListener('mousedown', handleClickOutside)
-        return () => document.removeEventListener('mousedown', handleClickOutside)
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
     }, [])
+
+    const toggleDropdown = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        setDropdownState(!dropdownState)
+    }
 
     return (
         <NavbarContainer
-            className="fixed top-0 right-0 left-0 z-10 px-4 py-2"
+            className="fixed top-0 right-0 left-0 z-50 px-4 py-2"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3 }}
@@ -100,10 +106,7 @@ export const Navbar = ({ onMenuClick, isSidebarOpen, isMobile }) => {
                 </div>
 
                 <div className="relative" ref={dropdownRef}>
-                    <UserButton
-                        onClick={() => setDropdownState(!dropdownState)}
-                        whileTap={{ scale: 0.95 }}
-                    >
+                    <UserButton onClick={toggleDropdown} whileTap={{ scale: 0.95 }}>
                         <FaRegUserCircle className="text-xl" />
                         <span className="hidden sm:block">Account</span>
                     </UserButton>
@@ -148,3 +151,4 @@ export const Navbar = ({ onMenuClick, isSidebarOpen, isMobile }) => {
         </NavbarContainer>
     )
 }
+

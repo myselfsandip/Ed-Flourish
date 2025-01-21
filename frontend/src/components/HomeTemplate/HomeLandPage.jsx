@@ -287,11 +287,11 @@ const ResourceGrid = () => {
     },
     {
       icon: "▶️",
-      title: "DSA Playlist",
+      title: "DBMS Playlist",
       description:
-        "Master algorithms effortlessly with our curated DSA playlist.",
+        "Master Databases effortlessly with our curated DSA playlist.",
       actionText: "Watch Now",
-      actionLink: "/dsa",
+      actionLink: "/dbms",
     },
     {
       icon: "💻",

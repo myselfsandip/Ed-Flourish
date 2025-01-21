@@ -108,6 +108,7 @@ function YearlyQuestions() {
 
     const filteredPapers = useMemo(() => {
         const activeSemesterData = semesterData.find((sem) => sem.semester === activeSemester)
+        if (!activeSemesterData) return []
         return activeSemesterData.papers.filter((paper) => paper.name.toLowerCase().includes(searchQuery.toLowerCase()))
     }, [activeSemester, searchQuery])
 
@@ -167,13 +168,13 @@ function YearlyQuestions() {
                             </div>
                         </div>
 
-                        <div className="flex justify-between items-center mb-6">
+                        {/* <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-semibold text-gray-200">Semester {activeSemester} Papers</h2>
                             <FilterButton whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                                 <FaFilter />
                                 <span>Filter</span>
                             </FilterButton>
-                        </div>
+                        </div> */}
 
                         <div className="grid gap-4">
                             <AnimatePresence>
@@ -233,7 +234,7 @@ function YearlyQuestions() {
                         </div>
                     </div>
 
-                    <div className="w-full lg:w-80">
+                    {/* <div className="w-full lg:w-80">
                         <Card className="sticky top-4 p-6">
                             <h3 className="text-xl font-semibold text-blue-400 mb-6">Quick Stats</h3>
                             <div className="space-y-4">
@@ -251,7 +252,7 @@ function YearlyQuestions() {
                                 </div>
                             </div>
                         </Card>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </PageContainer>

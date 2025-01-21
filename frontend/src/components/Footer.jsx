@@ -24,7 +24,7 @@ const Footer = () => {
                                 we have resources to support your learning journey.
                             </p>
                         </div>
-                        <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors duration-200">
+                        <button onClick={() => location.href="https://discord.gg/uTheSP6z"} className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors duration-200">
                             Join Community
                         </button>
                     </div>

@@ -17,6 +17,7 @@ import LoadingSpinner from './components/LoadingSpinner';
 import Blogs from './pages/Blogs';
 import Profile from './pages/Profile';
 import Dashboard from './pages/Dashboard';
+import ComingSoon from './pages/ComingSoon';
 
 
 function App() {
@@ -37,7 +38,9 @@ function App() {
             <Route path='/dsa/*' element={<DsaSheet />} />
             <Route path='/java/*' element={<JavaSheet />} />
             <Route path='/bca/*' element={<Bca />} />
-            <Route path='/settings' element={<Settings />} />
+            <Route path='/dbms' element={<ComingSoon />} />
+            <Route path='/cs' element={<ComingSoon />} />
+            <Route path='/cp' element={<ComingSoon />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

@@ -34,7 +34,7 @@ export const Navbar = ({ onMenuClick ,page }) => {
                     </button>
                     {dropdownState && (
                         <div className="absolute right-0 mt-2 w-48 rounded-lg bg-gray-800 border border-gray-700 shadow-lg">
-                            <Link className="block px-4 py-2 text-gray-300 hover:bg-gray-700 cursor-pointer">Profile</Link>
+                            <Link className="block px-4 py-2 text-gray-300 hover:bg-gray-700 cursor-pointer">Dashboard</Link>
                             <Link to={"/" + page + "/settings"} className="block px-4 py-2 text-gray-300 hover:bg-gray-700 cursor-pointer">Settings</Link>
                             <div className="border-t border-gray-700"></div>
                             <butt className="block px-4 py-2 text-red-400 hover:bg-gray-700 cursor-pointer">Logout</butt>

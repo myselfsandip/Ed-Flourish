@@ -202,7 +202,7 @@ export const Sidebar = ({ isOpen, setIsOpen, width, isMobile }) => {
                         </Link>
                     </NavItem>
 
-                    <NavItem className={`${isActive("/bca/settings") ? "active" : ""}`}>
+                    {/* <NavItem className={`${isActive("/bca/settings") ? "active" : ""}`}>
                         <Link
                             to="/bca/settings"
                             className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-500/10 transition-colors"
@@ -210,7 +210,7 @@ export const Sidebar = ({ isOpen, setIsOpen, width, isMobile }) => {
                             <IoMdSettings className="text-xl text-gray-400" />
                             <span className="text-gray-300">Settings</span>
                         </Link>
-                    </NavItem>
+                    </NavItem> */}
                 </nav>
 
                 {/* User Profile */}

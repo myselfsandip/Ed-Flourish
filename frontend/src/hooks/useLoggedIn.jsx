@@ -32,7 +32,7 @@ const useLoggedIn = () => {
                     setUser(null);
                 }
             } catch (err) {
-                console.error('Auth check error:', err);
+                // console.error('Auth check error:', err);
                 setError(err.response?.data?.msg || 'Authentication check failed');
                 setIsLoggedIn(false);
                 setUser(null);

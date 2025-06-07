@@ -18,7 +18,8 @@ import Blogs from './pages/Blogs';
 import Profile from './pages/Profile';
 import Dashboard from './pages/Dashboard';
 import ComingSoon from './pages/ComingSoon';
-
+import Chatbot from "./components/chatbot/Chatbot"
+import Jobs from './pages/Jobs';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path='/profile' element={<Profile />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/blogs' element={<Blogs />} />
+            <Route path='/jobs' element={<Jobs />} />
             <Route path='/dsa/*' element={<DsaSheet />} />
             <Route path='/java/*' element={<JavaSheet />} />
             <Route path='/bca/*' element={<Bca />} />
@@ -43,6 +45,7 @@ function App() {
             <Route path='/cp' element={<ComingSoon />} />
           </Routes>
         </Suspense>
+        <Chatbot />
       </BrowserRouter>
     </>
   )

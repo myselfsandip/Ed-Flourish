@@ -6,6 +6,7 @@ import { connectDB } from "./db/connectDB.js"
 
 import authRoutes from "./routes/authRoutes.js"
 import courseRoutes from "./routes/courseRoutes.js"
+import chatBotRoutes from "./routes/chatBotRoutes.js"
 
 const app = express();
 
@@ -35,8 +36,9 @@ app.use(async (req, res, next) => {
 })
 
 // Your routes
-app.use("/api/auth", authRoutes)
-app.use("/api/course", courseRoutes)
+app.use("/api/auth", authRoutes);
+app.use("/api/course", courseRoutes);
+app.use("/api/chat", chatBotRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

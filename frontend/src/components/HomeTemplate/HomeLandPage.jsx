@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import logo from "../../../logo/bulb.png";
 import Footer from '../Footer';
 import NavBarFront from "../NavBarFront"
+import axios from 'axios';
+import { FaBriefcase } from 'react-icons/fa';
 
 console.log(logo); // Keep this for debugging
 
@@ -333,6 +335,115 @@ const ResourceGrid = () => {
   );
 };
 
+
+const JobCard = ({ title, company, location, description, url, remote }) => (
+  <div className="bg-[#2a2f38] rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:border hover:border-gray-200">
+    <div className="p-6">
+      <div className="flex items-center mb-4">
+        <FaBriefcase className="text-blue-400 text-2xl mr-2" />
+        <h3 className="text-xl font-bold text-white">{title}</h3>
+      </div>
+      <p className="text-gray-300 mb-2">
+        <span className="font-semibold">Company:</span> {company}
+      </p>
+      <p className="text-gray-300 mb-2">
+        <span className="font-semibold">Location:</span> {location} {remote ? '(Remote)' : ''}
+      </p>
+      <div className="text-gray-300 mb-4">{description.substring(0, 100) + '...'}</div>
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <button
+          className="font-sans flex justify-center gap-2 items-center mx-auto shadow-xl text-lg text-gray-50 bg-[#0A0D2D] backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#1c232b] hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-200 before:hover:duration-500 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
+          type="button"
+        >
+          Apply Now
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 19"
+            className="w-8 h-8 justify-end bg-gray-50 group-hover:rotate-90 group-hover:bg-[#1c232b] text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-gray-700 p-2 rotate-45"
+          >
+            <path
+              className="fill-gray-50 group-hover:fill-gray-50"
+              d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+            ></path>
+          </svg>
+        </button>
+      </a>
+    </div>
+  </div>
+);
+
+const JobSection = () => {
+  const [jobs, setJobs] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const options = {
+        method: 'GET',
+        url: 'https://www.arbeitnow.com/api/job-board-api',
+        params: {
+          page: '1',
+          q: 'developer',
+          location: 'india',
+          remote: 'true',
+        },
+      };
+
+      try {
+        const response = await axios.request(options);
+        const jobData = response.data.data || [];
+        setJobs(jobData.slice(0, 3)); // Limit to 3 jobs for homepage
+        setError(null);
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+        setError('Failed to load job listings. Please try again later.');
+        setJobs(mockJobs); // Fallback to mock data
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  return (
+    <div className="bg-[#1c232b] py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-white text-center mb-2">Explore Job Opportunities</h2>
+        <p className="text-xl text-gray-300 text-center mb-12">
+          Find exciting developer roles in India or remotely to kickstart your career
+        </p>
+        {error && <div className="text-red-400 text-center mb-4">{error}</div>}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {jobs.length > 0 ? (
+            jobs.map((job, index) => (
+              <JobCard
+                key={index}
+                title={job.title || 'Remote Developer'}
+                company={job.company_name || 'Tech Corp'}
+                location={job.location || 'India'}
+                description={job.description || 'Join our team to build cutting-edge applications.'}
+                url={job.url || '#'}
+                remote={job.remote || false}
+              />
+            ))
+          ) : (
+            <div className="text-gray-300 text-center col-span-full">Loading jobs...</div>
+          )}
+        </div>
+        <div className="mt-10 pt-4 text-center">
+          <Link
+            to="/jobs#jobPage"
+            className="px-6 py-3 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-purple-500 hover:to-blue-500 hover:shadow-xl"
+          >
+            View More Jobs
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
 const BlogPost = ({ image, category, title, description, author, date }) => (
   <div className="bg-[#2a2f38] rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:border hover:border-gray-200">
     <img src={image} alt={title} className="w-full h-48 object-cover" />
@@ -412,6 +523,7 @@ const HomeLandPage = () => {
         </div>
         <ResourceGrid />
         <WhyChooseUs />
+        <JobSection />
         <BlogSection />
       </main>
       <Footer />

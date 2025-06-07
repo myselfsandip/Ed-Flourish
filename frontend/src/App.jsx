@@ -20,12 +20,27 @@ import Dashboard from './pages/Dashboard';
 import ComingSoon from './pages/ComingSoon';
 import Chatbot from "./components/chatbot/Chatbot"
 import Jobs from './pages/Jobs';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Suspense fallback={<LoadingSpinner />}>
+
+        <Suspense fallback={<LoadingSpinner />}>\
+          <ScrollToTop />
           <Routes>
             <Route path='/register' element={<Register />} />
             <Route path='/verify_email' element={<VerifyEmail />} />

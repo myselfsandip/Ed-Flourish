@@ -349,7 +349,11 @@ const JobCard = ({ title, company, location, description, url, remote }) => (
       <p className="text-gray-300 mb-2">
         <span className="font-semibold">Location:</span> {location} {remote ? '(Remote)' : ''}
       </p>
-      <div className="text-gray-300 mb-4">{description.substring(0, 100) + '...'}</div>
+      <div
+        className="text-gray-300 mb-4"
+        dangerouslySetInnerHTML={{ __html: description.substring(0, 100) + '...' }}
+      ></div>
+
       <a href={url} target="_blank" rel="noopener noreferrer">
         <button
           className="font-sans flex justify-center gap-2 items-center mx-auto shadow-xl text-lg text-gray-50 bg-[#0A0D2D] backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#1c232b] hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-200 before:hover:duration-500 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
@@ -431,7 +435,7 @@ const JobSection = () => {
         </div>
         <div className="mt-10 pt-4 text-center">
           <Link
-            to="/jobs#jobPage"
+            to="/jobs"
             className="px-6 py-3 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-purple-500 hover:to-blue-500 hover:shadow-xl"
           >
             View More Jobs

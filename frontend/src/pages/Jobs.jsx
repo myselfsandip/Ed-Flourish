@@ -6,6 +6,7 @@ import { FaBriefcase, FaMapMarkerAlt, FaArrowLeft, FaFilter, FaSpinner } from 'r
 import NavBarFront from '../components/NavBarFront';
 import Footer from '../components/Footer';
 
+
 // Mock data for fallback
 const mockJobs = [
     {
@@ -102,7 +103,11 @@ const JobCard = ({ title, company, location, description, url, remote }) => (
                 <FaMapMarkerAlt className="text-purple-400 mr-2" />
                 <span className="font-semibold mr-1">Location:</span> {location} {remote && <span className="text-green-400 ml-1">(Remote)</span>}
             </p>
-            <p className="text-gray-400 mb-6 line-clamp-3">{description}</p>
+            <p
+                className="text-gray-400 mb-6 line-clamp-3"
+                dangerouslySetInnerHTML={{ __html: description }}
+            ></p>
+
             <a href={url} target="_blank" rel="noopener noreferrer">
                 <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -179,7 +184,7 @@ const Jobs = () => {
             <NavBarFront />
             <main className="flex-grow py-16" id='jobPage'>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
+
                     <motion.h1
                         initial={{ y: -50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}

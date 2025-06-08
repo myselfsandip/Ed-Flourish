@@ -39,7 +39,7 @@ function App() {
     <>
       <BrowserRouter>
 
-        <Suspense fallback={<LoadingSpinner />}>\
+        <Suspense fallback={<LoadingSpinner />}>
           <ScrollToTop />
           <Routes>
             <Route path='/register' element={<Register />} />

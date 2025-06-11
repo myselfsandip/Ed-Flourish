@@ -1,10 +1,11 @@
 import SheetTemplate from "../components/java_sheet/SheetTemplate";
+import SkillCourseSheet from "../components/SkillCourseSheet";
 import ComingSoon from "./ComingSoon";
 
 function JavaSheet() {
     return (
         // <SheetTemplate/>
-        <ComingSoon />
+        <SkillCourseSheet courseName="Java Programming" />
     );
 }
 

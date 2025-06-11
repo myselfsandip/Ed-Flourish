@@ -8,7 +8,6 @@ import { sendResetSuccessEmail, sendVerificationEmail, sendWelcomeEmail } from "
 
 //Registration
 export const register = async (req, res) => {
-    console.log('reg entered')
     try {
         const parsedPayload = userRegisterSchema.safeParse(req.body);
         if (!parsedPayload.success) {

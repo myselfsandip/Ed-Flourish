@@ -47,7 +47,7 @@ app.use((err, req, res, next) => {
     success: false,
     message: "Something went wrong!",
   })
-})
+});
 
 // Only start server if not in production
 if (process.env.NODE_ENV !== "production") {

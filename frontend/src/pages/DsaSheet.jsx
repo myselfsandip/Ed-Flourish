@@ -1,10 +1,11 @@
 import SheetTemplate from "../components/dsa_sheet/SheetTemplate";
+import SkillCourseSheet from "../components/SkillCourseSheet";
 import ComingSoon from "./ComingSoon";
 
 function DsaSheet() {
     return (
         // <SheetTemplate/>
-        <ComingSoon />
+        <SkillCourseSheet courseName="DSA Sheet" />
     );
 }
 

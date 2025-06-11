@@ -22,6 +22,9 @@ import Chatbot from "./components/chatbot/Chatbot"
 import Jobs from './pages/Jobs';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import Dbms from './pages/Dbms';
+import SystemDesignSheet from './pages/SystemDesignSheet';
+import CpSheet from './pages/CpSheet';
 
 
 const ScrollToTop = () => {
@@ -55,9 +58,9 @@ function App() {
             <Route path='/dsa/*' element={<DsaSheet />} />
             <Route path='/java/*' element={<JavaSheet />} />
             <Route path='/bca/*' element={<Bca />} />
-            <Route path='/dbms' element={<ComingSoon />} />
-            <Route path='/cs' element={<ComingSoon />} />
-            <Route path='/cp' element={<ComingSoon />} />
+            <Route path='/dbms' element={<Dbms />} />
+            <Route path='/system_design' element={<SystemDesignSheet />} />
+            <Route path='/cp' element={<CpSheet />} />
           </Routes>
         </Suspense>
         <Chatbot />

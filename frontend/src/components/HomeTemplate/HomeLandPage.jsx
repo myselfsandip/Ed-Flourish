@@ -297,10 +297,10 @@ const ResourceGrid = () => {
     },
     {
       icon: "💻",
-      title: "CS Subjects",
-      description: "Demystify CS topics with our easy-to-understand guides.",
+      title: "System Design",
+      description: "System Design Fundamentals.",
       actionText: "Try it free",
-      actionLink: "/cs",
+      actionLink: "/system_design",
     },
     {
       icon: "⏱️",

@@ -219,16 +219,7 @@ const Jobs = () => {
                             <FaFilter className="mr-2" />
                             Remote Jobs
                         </button>
-                        <button
-                            onClick={() => handleFilterToggle('location')}
-                            className={`flex items-center px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${filter.location
-                                ? 'bg-purple-600 text-white shadow-lg'
-                                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600'
-                                }`}
-                        >
-                            <FaMapMarkerAlt className="mr-2" />
-                            India Jobs
-                        </button>
+                        
                     </motion.div>
 
                     {/* Error Message */}
